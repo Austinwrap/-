@@ -9,20 +9,22 @@
             color: #ffffff;
             font-family: 'Helvetica', Arial, sans-serif;
             margin: 0;
-            padding: 20px;
+            padding: 10px; /* Reduced padding for smaller screens */
             line-height: 1.5;
         }
 
         .container {
-            max-width: 700px;
+            max-width: 100%; /* Changed from 700px to fit smaller screens */
+            width: 100%; /* Ensures full width on mobile */
             margin: 0 auto;
             border: 2px solid;
             border-image: linear-gradient(45deg, #c0c0c0, #ffffff, #c0c0c0) 1;
-            padding: 20px;
+            padding: 15px; /* Reduced padding for mobile */
             box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
             animation: shimmer 4s infinite;
             border-radius: 10px;
             background: #222222;
+            box-sizing: border-box; /* Ensures padding doesn’t overflow */
         }
 
         @keyframes shimmer {
@@ -33,18 +35,18 @@
 
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced for mobile */
         }
 
         .dealership-name {
-            font-size: 2.5em;
+            font-size: clamp(1.8em, 6vw, 2.5em); /* Scales font size dynamically */
             margin-bottom: 5px;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 0 20px rgba(255, 255, 255, 0.3);
             animation: sparkle 2s infinite;
         }
 
         .sparkle-name {
-            font-size: 2em;
+            font-size: clamp(1.5em, 5vw, 2em); /* Scales font size dynamically */
             margin: 10px 0;
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.5), 0 0 15px rgba(255, 255, 255, 0.3);
             animation: sparkle 2s infinite;
@@ -58,14 +60,14 @@
 
         .header p {
             margin: 5px 0;
-            font-size: 1em;
+            font-size: clamp(0.8em, 3.5vw, 1em); /* Scales text for readability */
             color: #e0e0e0;
         }
 
         .button {
             background: linear-gradient(to bottom, #ffffff, #d0d0d0);
             border: none;
-            padding: 8px 20px;
+            padding: 8px 15px; /* Slightly reduced padding */
             margin: 5px;
             border-radius: 20px;
             cursor: pointer;
@@ -73,8 +75,7 @@
             font-weight: 600;
             box-shadow: 0 2px 10px rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
-            display: inline-block;
-            font-size: 0.9em;
+            font-size: clamp(0.8em, 3vw, 0.9em); /* Scales button text */
         }
 
         .button:hover {
@@ -90,25 +91,26 @@
         }
 
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 20px; /* Reduced for mobile */
         }
 
         select, input {
             width: 100%;
-            padding: 10px 12px;
-            margin: 8px 0;
+            padding: 8px 10px; /* Slightly reduced padding */
+            margin: 6px 0; /* Reduced margin */
             background: #333;
             color: #fff;
             border: 1px solid #555;
             border-radius: 6px;
             box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
-            font-size: 0.9em;
+            font-size: clamp(0.8em, 3vw, 0.9em); /* Scales input text */
+            box-sizing: border-box;
         }
 
         h2 {
-            font-size: 1.5em;
+            font-size: clamp(1.2em, 4vw, 1.5em); /* Scales heading */
             text-shadow: 0 0 6px rgba(255, 255, 255, 0.2);
-            margin-bottom: 15px;
+            margin-bottom: 10px; /* Reduced for mobile */
         }
 
         #contact-form {
@@ -120,16 +122,28 @@
             font-style: italic;
             margin: 10px 0;
             text-align: center;
-            font-size: 0.9em;
+            font-size: clamp(0.7em, 3vw, 0.9em); /* Scales text */
+        }
+
+        /* Media query for smaller screens (e.g., iPhone) */
+        @media (max-width: 450px) {
+            .button {
+                display: block; /* Stack buttons vertically */
+                width: 100%; /* Full width for easier tapping */
+                margin: 5px 0; /* Adjust spacing */
+            }
+            .header p {
+                line-height: 1.2; /* Tighter line spacing */
+            }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1 class="dealership-name">Christian Sinchi</h1>
+            <h1 class="dealership-name">Shakers CDJR</h1>
             <p>1230 Main St, Watertown, CT 06795</p>
-            <h1 class="sparkle-name">Shakers CDJR</h1>
+            <h1 class="sparkle-name">Christian Sinchi</h1>
             <p>Dealership Phone: (860) 266-2921 - Ask for Christian</p>
             <p>Christian's Cell: (347) 702-2499</p>
             <p>Email: csinchi@shakerscdjr.com</p>
